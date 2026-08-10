@@ -67,6 +67,188 @@ COURSES = [
          short="Optometry", elig="10th pass or fail"),
 ]
 
+# ---------------------------------------------------------------------------
+# Facts below are taken from the four-colour prospectus. The Silver Jubilee
+# banner ("1996 TO 2021") is what fixes the founding year — it reconciles the
+# "30 years" badge on the one-colour prospectus.
+# ---------------------------------------------------------------------------
+FOUNDED = 1996
+YEARS = 2026 - FOUNDED           # 30
+
+FOUNDER = dict(
+    name="Dr. Hemant Raje Gaikwad",
+    quals="MBBS · DOMS · PhD",
+    roles=["Founder &amp; Director, Dr. Gaikwad's Institute",
+           "Commandant, Home Guards",
+           "Author of medical training manuals used across the institute's courses"],
+)
+
+# Manuals written by the founder and used as course texts.
+BOOKS = [
+    ("book-medical-labs",  "Manual for Medical Laboratories",
+     "Haematology, microbiology and biochemistry — the DMLT core text."),
+    ("book-anatomy",       "Manual of Anatomy for Nursing Homes",
+     "Systems anatomy written for paramedical students rather than medical undergraduates."),
+    ("book-surgery",       "Manual of Surgery for Nursing Homes",
+     "Theatre procedure, instruments and post-operative care."),
+    ("book-obstetrics",    "Manual of Obstetrics &amp; Gynaecology",
+     "Maternity and nursing-home practice."),
+    ("book-pharmacology",  "Manual of Pharmacology for Nursing Homes",
+     "Drug groups, dosage and administration for ward staff."),
+    ("book-optometry",     "Textbook of Optometry (Marathi)",
+     "Refraction and dispensing, written in Marathi for the optometry diploma."),
+]
+
+OTHER_BOOKS = ["Manual of Paediatrics", "Manual of General Instruments", "Manual of Nutrition",
+               "Manual of Blood Banking", "Manual of Medicine for Nursing Homes",
+               "Manual of English Speaking"]
+
+ACCREDITATIONS = [
+    ("bss", "Bharat Sevak Samaj",
+     "National development agency promoted by the Government of India in 1952, its constitution approved "
+     "unanimously by the Indian Parliament. Every diploma is awarded under this certification.", None),
+    ("accred-iso-9001", "ISO 9001:2015",
+     "Certificate of Registration for the institute's Quality Management System.", "accred-iso-9001"),
+    ("accred-hlact", "HLACT International",
+     "Accredited institute of HLACT International for the period January 2017 to December 2027, against "
+     "international education standards.", "accred-hlact"),
+    ("accred-wsc", "World Skill Council",
+     "Authorised Skill Institute of the World Skill Council.", "accred-world-skill-council"),
+]
+
+HOSPITALS = [
+ "Care 24 Hospital","Hinduja Hospital","Wadia Hospital","Balaji Hospital (Kalyan)","Jupiter Hospital",
+ "Criticare Hospital","Global Hospital","New Carewell Hospital","Mansi Nursing Home",
+ "Khandeparkar Hospital","K.E.M. Hospital","Arogyanidhi Hospital (Andheri)","Fonseca Clinic",
+ "Shree Hospital &amp; Polyclinic","Kusum Maternity, Children's &amp; General Hospital","Asha Nursing Home",
+ "Reliance Foundation Hospital (Charni Road)","Majda Memorial Nursing Home","Dr. Shah Hospital (Jogeshwari)",
+ "Ideal Nursing Home","Shatabai Hospital (Kandivali)","Saibaba Hospital","SDM Hospital","Sewree Nursing Home",
+ "Al Danat Hospital (Dubai)","Pikale Hospital","Dr. Shivdikar Hospital","Gurukrupa Hospital",
+ "Nadkarni Hospital","Shalom Hospital (Bhayandar)","Suchak Hospital","Global 5 Hospital",
+ "Platinum Hospital (Mulund)","Galaxy Multispeciality Hospital","Dyangeeta Nursing Home",
+ "Sanjeevani Hospital","Sion Polyclinic &amp; Hospital","Vatsalya Maternity &amp; Nursing Home",
+ "Abhinav Maternity &amp; Nursing Home","Anurag Maternity &amp; Nursing Home","Kedar Hospital","Kamat Hospital",
+ "Gujar Maternity &amp; Surgical Hospital","Dr. Parulekar Maternity &amp; Nursing Home","Palep Nursing Home",
+ "Jarimari Hospital","Matoshree Hospital","Shri Datta Mohini Hospital","Khushal Hospital &amp; Maternity Home",
+ "Sarogi Hospital","Kalpana Nursing Home","Joshi Nursing Home","S P Nursing Home &amp; Polyclinic",
+ "Pai Hospital","Ashtavinayak Hospital","Manav Kalyan Seva Trust &amp; Hospital","Dr. Harish Nursing Home",
+ "Shruti Nursing Home","Shanti Nursing Home","Ganesh Multi-Speciality Hospital","Mangala Nursing Home",
+ "Chandan Nursing Home","Pooja Nursing Home","Masrani Hospital","Karbhari Nursing Home","Desai Hospital",
+ "S General Hospital","Laxmi Clinic","Brahman Sabha Hospital",
+]
+
+LABS = [
+ "Asian Heart Institute","Panvel Municipal Corporation","SRL Diagnostic","Healthcare India Pvt. Ltd",
+ "Metropolis Lab","Reelabs Pvt. Ltd","Thyrocare Lab","Fayth Clinic &amp; Diagnostic Centre",
+ "Lifecare Diagnostic Centre Pvt. Ltd.","Bandra Pathology Lab","Shifa Diagnostic Centre","RSB Lab",
+ "Panvel Mahanagarpalika (PMC)","Suburban Diagnostic Centre","BMC K/East Ward (Andheri)",
+ "Pathology Centre (Santacruz)","Aniket Lab (Kanjurmarg)","Mahavir Medical Lab","India House Lab","ANS Lab",
+ "Lions Diagnostic Centre","Pulse Diagnostic Centre","Midas Diagnostic Centre","Dr. Goyal's Diagnostic Centre",
+ "Mothercare Diagnostic Centre","Rishabh Diagnostic Centre","Precision Diagnostic Centre","Shifa Clinic",
+ "Suyash Clinic","Jain Clinic","Yashika Diagnostic Center &amp; Healthcare",
+ "Sunshine Healthcare &amp; Diagnostic Center","Citylight Clinic","Mahim Pathology Laboratory",
+ "Safelife Diagnostic Centre","I Care Pathology","Shubham Pathology Laboratory","E Global Diagnostics",
+ "Usha Laboratory","Swati Pathology Laboratory","Aryan Pathology","Primacare Diagnostics",
+ "Astha Diagnostic Centre","R T Pathology Laboratory","Anjali Pathology Laboratory","Sai Diagnostics",
+ "Darshana Diagnostic Centre","Saluja Pathology Laboratory","Sunrays Diagnostic Centre",
+ "Swami Samarth Diagnostic Centre","Jain Medical Centre","Sushmit Pathology Lab","Sparsh Diagnostic Centre",
+ "Hi Tech Diagnostic Centre","Disha Diagnostic Centre","Desai Laboratory","Helping Diagnostic Centre",
+ "Neuron Pathology and Diagnostics","Parth Pathology Lab","Laxmi Diagnostic","Vidya Awar Pathology",
+ "Rigved Pathology","Millenium Laboratory","Medisure Laboratory","Om Diagnostic Centre",
+ "Prism Diagnostic Centre","Samarth Hi Tech Lab","Shree P B Hemani Sarvajanik Jain Clinic",
+ "Skyline Diagnostics",
+]
+
+# ---------------------------------------------------------------------------
+# Graduate letters reproduced from the prospectus. The scan is the evidence;
+# the English summary is a translation of the Marathi so the page is readable
+# to everyone. `course` keys the letter to a diploma page. Salary figures are
+# as stated by the writer.
+# ---------------------------------------------------------------------------
+TESTIMONIALS = [
+ dict(img="hinduja-hospital-02", place="Hinduja Hospital", name="Supriya Pandurang Hate",
+      course="patient-care", cert="2008", pay="&#8377;40,000&ndash;45,000",
+      quote="I am a DPC student and received my certificate in 2008. I work at Hinduja Hospital and my "
+            "monthly pay is &#8377;40,000 to &#8377;45,000. For this I am grateful to Dr. Gaikwad Institute."),
+ dict(img="hinduja-hospital-01", place="Hinduja Hospital", name="Sneha Santosh Mahajan",
+      course="patient-care", cert="2019", pay="&#8377;25,000",
+      quote="My name is Sneha Santosh Mahajan. I am a DPC student and received my certificate in 2019. "
+            "I now work at Hinduja Hospital and receive a salary of &#8377;25,000."),
+ dict(img="bmc-maternity", place="BMC Maternity Home, Andheri", name="Nirmala Prakash Bhude",
+      course="patient-care", cert="2005", pay="&#8377;50,000",
+      quote="I received my Gaikwad Institute certificate in 2005. My postings were with Dr. Parulekar "
+            "(Jogeshwari) and Dr. Shah (Vile Parle). I now work at the Andheri maternity home (K East) and "
+            "receive &#8377;50,000 a month."),
+ dict(img="panvel-municipal", place="Panvel Municipal Corporation", name="Nikita Anil Pawar",
+      course="medical-lab-technology", cert="2019", pay="&#8377;20,000",
+      quote="I am a DMLT student and received my certificate in 2019. I now work at Panvel Mahanagar Palika "
+            "(PMC) and my salary there is &#8377;20,000. I am very grateful to Dr. Gaikwad Institute."),
+ dict(img="jnpt-hospital", place="J.N.P.T. Hospital, Uran", name="Pratiksha Pravin Patil",
+      course="patient-care", cert="2016", pay="&#8377;20,000",
+      quote="I am a DPC student and received my certificate in 2016. I now work at J.N.P.T. Hospital in "
+            "Uran and my salary is &#8377;20,000."),
+ dict(img="bmc-thyrocare", place="Thyrocare Lab &amp; BMC", name="Anil Kumar Sharma",
+      course="medical-lab-technology", cert="2017", pay="&#8377;18,000",
+      quote="I did the DMLT course and received my certificate in 2017. I work at Thyrocare Lab on "
+            "&#8377;18,000 a month, and also do two hours of blood collection at BMC for &#8377;250 a day."),
+ dict(img="bmc-andheri", place="BMC Dispensary, Andheri", name="Prasa Pravin Dakvi",
+      course="medical-lab-technology", cert="2015", pay="&#8377;18,000",
+      quote="I am a DMLT student of Dr. Gaikwad Institute and received my certificate in 2015. I work at "
+            "Shambhaji Nagar dispensary, Andheri (K East ward) and receive &#8377;18,000."),
+ dict(img="wadia-hospital", place="Wadia Hospital, Parel", name="Madhuri Vijay Jadhav",
+      course="patient-care", cert="2018", pay="&#8377;15,000",
+      quote="I joined in 2016 and received my certificate in 2018. I now work at Wadia Hospital (Parel) "
+            "and my salary there is &#8377;15,000. I am grateful to Dr. Gaikwad Institute."),
+ dict(img="nanavati-hospital", place="Nanavati Hospital, Vile Parle", name="Rekha Shivkumar Yadav",
+      course="medical-lab-technology", cert="in training", pay="&#8377;14,000",
+      quote="I am a DMLT student, batch 15, on posting at Nanavati Hospital (Vile Parle). The institute "
+            "wrote my stipend as &#8377;4,000, but after PF deduction I receive &#8377;14,000 there. My "
+            "training is still continuing."),
+ dict(img="jj-hospital", place="J. J. Hospital, Byculla", name="Bhumi Arvind Zavake",
+      course="medical-lab-technology", cert="2021", pay="&#8377;12,000",
+      quote="I am a DMLT student of the 2020&ndash;2021 batch and received my certificate in 2021. I now "
+            "work on the J. J. Hospital campus (Sandhurst Road) and my salary is &#8377;12,000."),
+ dict(img="shatabdi-hospital-01", place="Shatabdi Hospital, Kandivali", name="Shubham Manikrao Pujari",
+      course="medical-lab-technology", cert="2021", pay="&#8377;12,000",
+      quote="I completed DMLT at Dr. Gaikwad Institute in 2021. I now work at (BDBA) Shatabdi Hospital, "
+            "Kandivali, and receive &#8377;12,000. For this I am very grateful to the institute."),
+ dict(img="shatabdi-hospital-02", place="Shatabdi Hospital, Kandivali", name="Sucheta Pramod Pawar",
+      course="medical-lab-technology", cert="2021", pay="&#8377;12,000",
+      quote="I completed DMLT at Dr. Gaikwad Institute in 2021 and now work at (BDBA) Shatabdi Hospital, "
+            "Kandivali, receiving a salary of &#8377;12,000."),
+ dict(img="kem-hospital", place="K.E.M. Hospital, Parel", name="Nikita Namdev Chavan",
+      course="medical-lab-technology", cert="2016", pay="&#8377;11,000",
+      quote="I am a DMLT student and received my certificate in 2016. I now have a job at K.E.M. (Parel) "
+            "Hospital where my salary is &#8377;11,000."),
+ dict(img="nair-hospital", place="Nair Hospital", name="Shwetani Shridhar Bhikare",
+      course="medical-lab-technology", cert="2023", pay="&#8377;10,000",
+      quote="I completed the D.M.L.T. course of 2021&ndash;2023 at Dr. Gaikwad Institute. After completing "
+            "it I got an excellent opportunity to work at Nair Hospital, with a starting salary of "
+            "&#8377;10,000."),
+]
+
+def _pay_key(t):
+    n = re.findall(r"(\d[\d,]*)", t["pay"].replace("&#8377;", ""))
+    return max(int(x.replace(",", "")) for x in n) if n else 0
+
+
+TESTIMONIALS.sort(key=_pay_key, reverse=True)
+
+# Featured trio for the homepage and fee page. Deliberately a spread rather
+# than the three biggest numbers: an established graduate, a mid-career one,
+# and a recent starter, so the range shown is the real one.
+FEATURED = [
+    next(t for t in TESTIMONIALS if t["img"] == "bmc-maternity"),        # 2005, ₹50,000
+    next(t for t in TESTIMONIALS if t["img"] == "panvel-municipal"),     # 2019, ₹20,000
+    next(t for t in TESTIMONIALS if t["img"] == "nair-hospital"),        # 2023, ₹10,000 starting
+]
+
+# Institutions where students have been posted, evidenced by the placement
+# letters reproduced in the prospectus.
+MAJOR_POSTINGS = ["K.E.M. Hospital","Nair Hospital","J. J. Hospital","Wadia Hospital","Hinduja Hospital",
+                  "Nanavati Hospital","Shatabdi Hospital","J.N.P.T. Hospital",
+                  "Brihanmumbai Municipal Corporation (BMC)","Panvel Municipal Corporation"]
+
 MONOGRAM = ('<svg width="46" height="46" viewBox="0 0 46 46" role="img" aria-label="Institute monogram">'
             '<circle cx="23" cy="23" r="21.2" fill="none" stroke="var(--navy)" stroke-width="1.6"/>'
             '<circle cx="23" cy="23" r="17.6" fill="none" stroke="var(--brass)" stroke-width="1"/>'
@@ -132,6 +314,50 @@ def medallion(key, size=64, ring=True):
             f'style="flex:0 0 auto;">'
             f'<circle cx="32" cy="32" r="30" fill="var(--navy)" {stroke}/>{dashed}'
             f'<g style="color:#E8D3A0;">{ICONS[key]}</g></svg>')
+
+
+def testimonial(t):
+    """One graduate letter: the scan as evidence, the English translation as
+    the readable content, and the salary pulled out as the headline figure."""
+    return f"""<figure class="letter">
+    <a class="letter-scan" href="assets/img/testimonials/{t['img']}.jpg" target="_blank" rel="noopener"
+       aria-label="View the full letter from {t['name']}, {t['place']}">
+      <img src="assets/img/testimonials/{t['img']}.jpg" loading="lazy" decoding="async"
+           alt="Handwritten letter in Marathi from {t['name']}, a graduate working at {t['place']}">
+    </a>
+    <figcaption>
+      <span class="letter-pay">{t['pay']}<small>per month</small></span>
+      <blockquote>{t['quote']}</blockquote>
+      <cite><b>{t['name']}</b>{t['place']} &middot; certificate {t['cert']}</cite>
+    </figcaption>
+  </figure>"""
+
+
+def testimonial_wall(items, cols="letters"):
+    return f'<div class="{cols} rise">' + "".join(testimonial(t) for t in items) + "</div>"
+
+
+def course_letters(c, limit=3):
+    """Letters from graduates of this specific diploma. Rendered only where we
+    actually hold letters for that course — no filler."""
+    items = [t for t in TESTIMONIALS if t["course"] == c["slug"]][:limit]
+    if not items:
+        return ""
+    return f"""
+<section class="band alt">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="label">{c['short']} graduates</span>
+      <h2>Where this diploma led</h2>
+      <p>Letters from students who took this course, reproduced as they wrote them. The salary is the figure
+         each writer states, not a figure we promise.</p>
+    </div>
+    {testimonial_wall(items, "letters" if len(items) > 2 else "letters-2")}
+    <div style="margin-top:24px;">
+      <a class="btn btn-primary" href="placements.html">Read all {len(TESTIMONIALS)} letters</a>
+    </div>
+  </div>
+</section>"""
 
 
 def photo_img(name, alt, kind, cap, tall=False):
@@ -267,7 +493,9 @@ def shell(page_file, title, description, body, active=None, head_extra="", robot
       <div>
         <h5>Institute</h5>
         <ul>
-          <li><a href="about.html">About &amp; BSS Certification</a></li>
+          <li><a href="about.html">About the Institute</a></li>
+          <li><a href="founder.html">Founder &amp; Director</a></li>
+          <li><a href="accreditation.html">Accreditation</a></li>
           <li><a href="fees.html">Fees &amp; Stipend</a></li>
           <li><a href="admissions.html">Admission Process</a></li>
           <li><a href="placements.html">Placements &amp; Postings</a></li>
@@ -457,6 +685,19 @@ PAGES["index.html"] = dict(
   </div>
 </div>
 
+<section class="band" style="padding-bottom:0;">
+  <div class="wrap">
+    <div class="accred-strip rise">
+      <div><b>Bharat Sevak Samaj</b><span>Government of India development agency, est. 1952</span></div>
+      <div><b>ISO 9001:2015</b><span>Registered quality management system</span></div>
+      <div><b>HLACT International</b><span>Accredited 2017&ndash;2027</span></div>
+      <div><b>World Skill Council</b><span>Authorised Skill Institute</span></div>
+    </div>
+    <p style="margin-top:14px;font-size:13px;color:var(--muted);">
+      <a href="accreditation.html" style="color:var(--navy-mid);font-weight:600;">See the certificates &rarr;</a></p>
+  </div>
+</section>
+
 <section class="band">
   <div class="wrap">
     <div class="sec-head rise">
@@ -563,8 +804,8 @@ PAGES["index.html"] = dict(
            President, and its constitution and functioning were approved unanimously by the Indian Parliament.</p>
         <p>Every diploma awarded at this institute is issued under that certification.</p>
         <div style="display:flex;gap:12px;margin-top:26px;flex-wrap:wrap;">
-          <a class="btn btn-brass" href="about.html">About the Institute</a>
-          <a class="btn btn-on-dark" href="placements.html">See Our Placements</a>
+          <a class="btn btn-brass" href="founder.html">Meet the Founder</a>
+          <a class="btn btn-on-dark" href="accreditation.html">Our Accreditations</a>
         </div>
       </div>
     </div>
@@ -597,6 +838,22 @@ PAGES["index.html"] = dict(
   </div>
 </section>
 
+<section class="band alt">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="label">Where our graduates work</span>
+      <h2>Letters from students who were placed</h2>
+      <p>Written by our own graduates after they found work, and reproduced as they wrote them. Three shown
+         here span the range &mdash; a recent starter, a mid-career technician and a graduate of 2005. The
+         English is a translation of the Marathi; the salary is the figure each writer states.</p>
+    </div>
+    {testimonial_wall(FEATURED)}
+    <div style="margin-top:26px;">
+      <a class="btn btn-primary" href="placements.html">Read all {len(TESTIMONIALS)} letters</a>
+    </div>
+  </div>
+</section>
+
 {cta_band("Seats are limited, and the batch fills before September.",
           "Speak to a counsellor about which diploma fits your marks, your budget and the hospital you want to "
           "work in. Bring a parent or guardian &mdash; we would rather answer every question now than after you "
@@ -612,7 +869,34 @@ PAGES["about.html"] = dict(
     "We are a paramedical training institute in Dadar West. We teach four stipendiary diplomas, place our "
     "graduates in private hospitals, laboratories and clinics across the city, and certify them under Bharat "
     "Sevak Samaj.",
-    [("30","Years teaching"),("10,000+","Students placed"),("1952","BSS established")])}
+    [(str(YEARS),"Years teaching"),("10,000+","Students placed"),(str(FOUNDED),"Founded")])}
+
+<section class="band" style="padding-bottom:0;">
+  <div class="wrap">
+    <div class="hub rise">
+      <a class="hubcard" href="founder.html">
+        <img src="assets/img/founder-portrait.jpg" alt="" loading="lazy" decoding="async" aria-hidden="true">
+        <div class="hubcard-body">
+          <span class="label">Founder &amp; Director</span>
+          <h3>{FOUNDER['name']}</h3>
+          <p>MBBS, DOMS, PhD. He founded the institute in {FOUNDED}, wrote the manuals our students learn
+             from, and still takes counselling visits himself.</p>
+          <span class="card-link">Read about the founder &rarr;</span>
+        </div>
+      </a>
+      <a class="hubcard" href="accreditation.html">
+        <img src="assets/img/accred-iso-9001.jpg" alt="" loading="lazy" decoding="async" aria-hidden="true">
+        <div class="hubcard-body">
+          <span class="label">Accreditation</span>
+          <h3>Who certifies what we teach</h3>
+          <p>Bharat Sevak Samaj, ISO 9001:2015, HLACT International (2017&ndash;2027) and the World Skill
+             Council. The certificates are reproduced in full.</p>
+          <span class="card-link">See the certificates &rarr;</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
 
 <section class="band">
   <div class="wrap">
@@ -627,6 +911,12 @@ PAGES["about.html"] = dict(
         <p>That posting is where the diploma stops being theoretical. It is also where most of our placements
            originate &mdash; the laboratory or nursing home that trains a student for twenty months is very
            often the one that hires them.</p>
+
+        <h3>Founded in {FOUNDED}, by a doctor</h3>
+        <p>The institute was founded by <a href="founder.html" style="color:var(--navy-mid);font-weight:600;">{FOUNDER['name']}</a>,
+           {FOUNDER['quals']} &mdash; a practising doctor who also wrote the dozen-odd manuals our students
+           learn from, and who still takes counselling visits himself. We marked our Silver Jubilee in 2021
+           and are now in our {YEARS}th year.</p>
 
         <h3>What we expect</h3>
         <p>We are a strict institute, and we say so plainly. Ninety per cent attendance is compulsory. Uniforms
@@ -652,6 +942,7 @@ PAGES["about.html"] = dict(
       <aside class="side-card rise">
         <span class="label">At a glance</span>
         <h4>Dr. Gaikwad's Institute</h4>
+        <div class="row"><span>Founded</span><b>{FOUNDED}</b></div>
         <div class="row"><span>Location</span><b style="font-family:var(--sans);font-weight:600;">Dadar (W)</b></div>
         <div class="row"><span>Certification</span><b style="font-family:var(--sans);font-weight:600;">B.S.S.</b></div>
         <div class="row"><span>Diploma courses</span><b>4</b></div>
@@ -951,7 +1242,7 @@ for c in COURSES:
     </div>
   </div>
 </section>
-
+{course_letters(c)}
 {cta_band(f"Apply for the {c['short']} diploma.",
           "Message us with your last examination result and we will confirm your eligibility the same working "
           "day. Counselling is free, and we will show you the full fee and refund terms before you pay.")}""")
@@ -1219,6 +1510,25 @@ PAGES["fees.html"] = dict(
   </div>
 </section>
 
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="label">The other side of the arithmetic</span>
+      <h2>What graduates go on to earn</h2>
+      <p>The fee is one number; this is the other. Letters from our own graduates stating where they work and
+         what they are paid &mdash; the figures are theirs, not ours. Reported salaries across all
+         {len(TESTIMONIALS)} letters run from &#8377;10,000 for a recent starter to &#8377;50,000 for a
+         graduate of 2005.</p>
+    </div>
+    {testimonial_wall(FEATURED)}
+    <div style="margin-top:26px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+      <a class="btn btn-primary" href="placements.html">Read all {len(TESTIMONIALS)} letters</a>
+      <p style="margin:0;font-size:13px;color:var(--muted);max-width:52ch;">Salaries are as reported by each
+         graduate and are not a guarantee of earnings.</p>
+    </div>
+  </div>
+</section>
+
 {cta_band("Want this in writing before you decide?",
           "Ask us for the printed prospectus. It carries the same fee schedule, instalment dates and refund "
           "rules published on this page, and it is the binding record.")}""")
@@ -1482,9 +1792,52 @@ PAGES["placements.html"] = dict(
 
     <div class="callout rise" style="max-width:none;margin-top:30px;">
       <span class="tag-l">Scope of our placement assistance</span>
-      <p>Placement assistance applies to the four two-year diploma courses only, and covers private hospitals,
-         clinics and diagnostic laboratories. <b>It does not extend to appointments in Government hospitals.</b>
-         The twelve one-year certificate courses are non-stipendiary and carry no placement assistance.</p>
+      <p>Placement assistance applies to the four two-year diploma courses only, and what we
+         <b>guarantee</b> covers private hospitals, clinics and diagnostic laboratories. It does
+         <b>not</b> extend to guaranteed appointments in Government hospitals &mdash; those are made on the
+         hospital's own terms. Our students have nonetheless been posted and placed at municipal and
+         government institutions including {', '.join(MAJOR_POSTINGS[:5])} and others listed below. The twelve
+         one-year certificate courses are non-stipendiary and carry no placement assistance.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="label">Where our students work</span>
+      <h2>{len(HOSPITALS)} hospitals and {len(LABS)} laboratories</h2>
+      <p>The organisations that have taken our students on posting or employed them after qualifying. Named
+         here so you can check them rather than take a placement figure on trust.</p>
+    </div>
+
+    <h3 style="font-size:19px;margin:0 0 6px;">Hospitals &amp; nursing homes
+      <span class="partner-count">({len(HOSPITALS)})</span></h3>
+    <ul class="partners rise">{''.join(f'<li>{h}</li>' for h in HOSPITALS)}</ul>
+
+    <h3 style="font-size:19px;margin:44px 0 6px;">Laboratories &amp; diagnostic centres
+      <span class="partner-count">({len(LABS)})</span></h3>
+    <ul class="partners rise">{''.join(f'<li>{l}</li>' for l in LABS)}</ul>
+
+    <p style="margin-top:30px;font-size:13px;color:var(--muted);max-width:74ch;">
+      Listing reproduced from the institute's prospectus. Inclusion records that a student has been posted or
+      placed there; it does not imply a standing vacancy, nor a commercial partnership.</p>
+  </div>
+</section>
+
+<section class="band alt">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="label">Community health</span>
+      <h2>Students on public health campaigns</h2>
+      <p>Our students work the BMC Pulse Polio vaccination campaign and Covid-19 vaccination drives &mdash;
+         supervised public health experience that does not appear on any syllabus.</p>
+    </div>
+    <div class="grid-4 rise">
+      {photo_img("polio-01","Student administering polio vaccine drops to an infant held by its mother","Pulse Polio","Administering vaccine drops at a BMC campaign booth")}
+      {photo_img("polio-02","Students at a BMC pulse polio vaccination booth","Pulse Polio","At a BMC vaccination booth")}
+      {photo_img("polio-03","Student giving polio drops to a child","Pulse Polio","Vaccinating a child during the campaign")}
+      {photo_img("event-vaccination","Student administering a Covid-19 vaccination at a clinic","Covid-19","Covid-19 vaccination duty")}
     </div>
   </div>
 </section>
@@ -1493,19 +1846,16 @@ PAGES["placements.html"] = dict(
   <div class="wrap">
     <div class="sec-head rise">
       <span class="label">In their words</span>
-      <h2>Students and parents</h2>
+      <h2>Letters from graduates, and what they earn</h2>
+      <p>Written by our own students after they were placed, and reproduced here exactly as they wrote them.
+         The English beside each letter is a translation of the Marathi; the salary is the figure the writer
+         states.</p>
     </div>
-    <div class="quotes rise">
-      <div class="quote"><span class="qm">&ldquo;</span>
-        <blockquote>I failed my 12th and thought that was the end of it. Two years later I was drawing a
-          salary in a pathology lab in Mahim. The posting is what got me the job &mdash; the lab I trained at
-          kept me on.</blockquote>
-        <cite><b>Alumni testimonial &mdash; to be supplied</b>DMLT &middot; placed at a diagnostic laboratory, Mumbai</cite></div>
-      <div class="quote"><span class="qm">&ldquo;</span>
-        <blockquote>What convinced us as parents was that they showed us the fee schedule and the refund rules
-          in writing on the first visit, before asking for a single rupee. Nobody else did that.</blockquote>
-        <cite><b>Parent testimonial &mdash; to be supplied</b>Parent of a Patient Care diploma student</cite></div>
-    </div>
+    {testimonial_wall(TESTIMONIALS)}
+    <p style="margin-top:26px;font-size:13px;color:var(--muted);max-width:74ch;">
+      Reproduced from the institute's prospectus with the writers' letters as submitted. Salaries are those
+      reported by each graduate at the time of writing and are not a guarantee of earnings &mdash; what you are
+      offered depends on the employer, the role and your own performance.</p>
   </div>
 </section>
 
@@ -1613,6 +1963,167 @@ PAGES["contact.html"] = dict(
 </section>""")
 
 
+# ============================================================ FOUNDER
+book_cards = "".join(f"""<figure class="book">
+    <img src="assets/img/{stem}.jpg" alt="Cover of {title}, written by {FOUNDER['name']}" loading="lazy" decoding="async">
+    <figcaption><b>{title}</b>{desc}</figcaption>
+  </figure>""" for stem, title, desc in BOOKS)
+
+PAGES["founder.html"] = dict(
+    title=f"{FOUNDER['name']} — Founder &amp; Director | Dr. Gaikwad's Institute",
+    description=f"{FOUNDER['name']}, {FOUNDER['quals']} — founder and director of Dr. Gaikwad's Institute, "
+                f"Dadar, Mumbai. Author of the medical manuals used across the institute's courses.",
+    active="about.html",
+    body=f"""{pagehead([("Home","index.html"),("About","about.html"),("Founder",None)],
+    FOUNDER['name'],
+    "The institute carries his name because he built it, teaches in it, and wrote most of the books our "
+    "students learn from.",
+    [(FOUNDER['quals'].replace(' · ','<br>'),"Qualifications"),(str(FOUNDED),"Founded the institute"),
+     ("12+","Manuals written")])}
+
+<section class="band">
+  <div class="wrap">
+    <div class="split">
+      <div class="rise">
+        <figure class="portrait">
+          <img src="assets/img/founder-portrait.jpg" loading="lazy" decoding="async"
+               alt="{FOUNDER['name']} in Home Guards Commandant uniform, addressing a parade">
+          <figcaption>{FOUNDER['name']} in his capacity as Commandant, Home Guards.</figcaption>
+        </figure>
+
+        <div class="prose" style="margin-top:34px;">
+          <span class="label">Founder &amp; Director</span>
+          <h2 style="font-size:clamp(23px,2.6vw,30px);margin:14px 0 18px;">A practising doctor, not an
+            administrator</h2>
+          <p>{FOUNDER['name']} qualified MBBS, took his DOMS in ophthalmology and went on to a PhD. He founded
+             this institute in {FOUNDED} on a straightforward premise: Mumbai's nursing homes, laboratories and
+             clinics needed trained technicians far more than they needed more theory graduates, and the
+             fastest honest route into that work was to put students on a real hospital floor and pay them
+             while they learned.</p>
+          <p>Three decades later that is still how the courses run — four months in the classroom, twenty
+             months on posting, under a practising doctor.</p>
+
+          <h3>He wrote the textbooks</h3>
+          <p>Rather than set students texts written for medical undergraduates, he wrote his own — more than
+             a dozen manuals covering anatomy, surgery, pharmacology, obstetrics, paediatrics, laboratory
+             practice, blood banking, nutrition and instruments, including a textbook of optometry in
+             Marathi. They are the books used on our courses.</p>
+
+          <h3>Beyond the institute</h3>
+          <ul>
+            <li><b>Commandant, Home Guards</b> — a serving role in Maharashtra's civil-defence force.</li>
+            <li><b>Bharat Karmasri Award</b>, conferred by the Central Bharat Sevak Samaj in recognition of
+                work empowering young people through skill training.</li>
+            <li><b>Author of <em>Shivaji Maharaj The Greatest</em></b>, presented to and received by public
+                figures across Maharashtra.</li>
+            <li><b>Public health service</b> — the institute's students work the BMC Pulse Polio vaccination
+                campaign and Covid-19 vaccination drives under his direction.</li>
+          </ul>
+        </div>
+      </div>
+
+      <aside class="side-card rise">
+        <span class="label">At a glance</span>
+        <h4>{FOUNDER['name']}</h4>
+        <div class="row"><span>Qualifications</span><b style="font-family:var(--sans);font-weight:600;">MBBS, DOMS, PhD</b></div>
+        <div class="row"><span>Founded</span><b>{FOUNDED}</b></div>
+        <div class="row"><span>Years teaching</span><b>{YEARS}</b></div>
+        <div class="row"><span>Manuals written</span><b>12+</b></div>
+        <div class="row"><span>Civil defence</span><b style="font-family:var(--sans);font-weight:600;">Commandant, Home Guards</b></div>
+        <a class="btn btn-brass" href="contact.html">Arrange a counselling visit</a>
+        <a class="btn btn-ghost" href="accreditation.html">Our accreditations</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="band alt">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="label">Written by the founder</span>
+      <h2>The manuals our students learn from</h2>
+      <p>Written specifically for paramedical students working in nursing homes and laboratories, rather than
+         adapted from medical-undergraduate texts. Included in your course fee.</p>
+    </div>
+    <div class="books rise">{book_cards}</div>
+    <p style="margin-top:22px;font-size:13.5px;color:var(--muted);max-width:74ch;">
+      Also written by {FOUNDER['name']}: {', '.join(OTHER_BOOKS)}.</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <span class="label">Recognition</span>
+      <h2>Awards and public service</h2>
+    </div>
+    <div class="grid-3 rise">
+      {photo_img("award-bharat-karmasri","Bharat Karmasri Award certificate conferred on the founder by the Central Bharat Sevak Samaj","Award","Bharat Karmasri Award, conferred by the Central Bharat Sevak Samaj",tall=True)}
+      {photo_img("founder-with-president","The founder presenting his book to former President of India Pratibha Patil","Recognition","Presenting his book to former President of India, Shrimati Pratibha Patil",tall=True)}
+      {photo_img("award-bmc","Citation from the Brihanmumbai Municipal Corporation public health department","Citation","Recognition from the BMC public health department",tall=True)}
+    </div>
+  </div>
+</section>
+
+{cta_band("Meet him at the institute.",
+          "The director takes counselling visits himself where he can. Telephone first to confirm when he is "
+          "available, and bring a parent or guardian.")}""")
+
+# ============================================================ ACCREDITATION
+accred_cards = "".join(f"""<div class="card">
+      <span class="label">Accreditation</span>
+      <h4>{name}</h4>
+      <p>{desc}</p>
+      {f'<a class="card-link" href="#{key}">See the certificate &rarr;</a>' if img else ''}
+    </div>""" for key, name, desc, img in ACCREDITATIONS)
+
+PAGES["accreditation.html"] = dict(
+    title="Accreditation & Certification — Dr. Gaikwad's Institute",
+    description="Dr. Gaikwad's Institute is certified by Bharat Sevak Samaj, registered to ISO 9001:2015, "
+                "accredited by HLACT International (2017–2027) and an authorised skill institute of the "
+                "World Skill Council.",
+    active="about.html",
+    body=f"""{pagehead([("Home","index.html"),("About","about.html"),("Accreditation",None)],
+    "Who certifies what we teach.",
+    "Four independent certifications sit behind the diplomas awarded here. The certificates themselves are "
+    "reproduced on this page — ask to see the originals at your counselling visit.",
+    [("1952","BSS established"),("ISO 9001","Quality management"),("2017&ndash;2027","HLACT accreditation")])}
+
+<section class="band">
+  <div class="wrap">
+    <div class="grid-4 rise">{accred_cards}</div>
+  </div>
+</section>
+
+<section class="band alt">
+  <div class="wrap">
+    <div class="sec-head rise" id="accred-iso-9001">
+      <span class="label">Certificates</span>
+      <h2>The documents themselves</h2>
+      <p>Reproduced from the institute's prospectus. Originals are available for inspection at the Dadar
+         premises.</p>
+    </div>
+    <div class="grid-3 rise">
+      {photo_img("accred-iso-9001","ISO 9001:2015 Certificate of Registration issued to Dr. Gaikwad Institute","Certificate","ISO 9001:2015 &mdash; Quality Management System",tall=True)}
+      {photo_img("accred-hlact","Certificate of Accreditation from HLACT International granted to Dr. Gaikwad Institute","Certificate","HLACT International &mdash; accredited January 2017 to December 2027",tall=True)}
+      {photo_img("accred-world-skill-council","World Skill Council Authorised Skill Institute certificate for Dr. Gaikwad Institute","Certificate","World Skill Council &mdash; Authorised Skill Institute",tall=True)}
+    </div>
+
+    <div class="callout rise" style="max-width:none;margin-top:32px;">
+      <span class="tag-l">What these do and do not cover</span>
+      <p>These certifications cover the institute and the diplomas it awards. They are not a substitute for
+         statutory professional registration. In particular, the Diploma in Patient Care and Diploma in
+         Patient Care Assistant have <b>no affiliation with the Indian Nursing Council</b> and do not qualify
+         the holder as a registered nurse. If a course's recognition matters for a specific job you have in
+         mind, ask us before you enrol and we will tell you plainly.</p>
+    </div>
+  </div>
+</section>
+
+{cta_band("Ask to see the originals.",
+          "Every certificate reproduced here is held at the institute. Bring a parent or guardian to a "
+          "counselling visit and ask to see them.")}""")
+
 # ============================================================ GALLERY
 def photo_grid(items):
     """items: (kind, caption) or (kind, caption, icon_key). Defaults to the
@@ -1697,30 +2208,30 @@ PAGES["gallery.html"] = dict(
          here.</p>
     </div>
     <div class="grid-4 rise">
-      {photo_grid([
-        ("Ganeshotsav", "Ganpati celebration at the institute", "star"),
-        ("Republic Day", "Flag hoisting and prize distribution", "star"),
-        ("Sports Day", "Annual athletics and team events", "medal"),
-        ("Gurupurnima", "Students with the teaching staff", "book"),
-        ("Dassehra & Diwali", "Festival celebration with the batch", "star"),
-        ("Eid & Christmas", "Festivals marked across the batch", "star"),
-        ("Saree Day", "Saree day and colour day", "camera"),
-        ("New Year", "New year celebration with the batch", "star"),
-      ])}
+      {photo_img("event-dance-costume","Students performing a costumed cultural dance on stage","Cultural","Costumed performance at the annual programme")}
+      {photo_img("event-stage-dance","Students performing a traditional dance on stage","Cultural","Traditional dance at the annual programme")}
+      {photo_img("event-lezim","Students in traditional dress performing lezim","Cultural","Lezim performance by the batch")}
+      {photo_img("event-parade","Students and Home Guards marching in a street parade","Parade","Street parade with the Home Guards")}
+      {photo_img("event-march-past","Students in white uniform marching in formation","March past","March past in uniform")}
+      {photo_img("event-welcome-banner","Students holding a Dr. Gaikwad's Institute welcome banner on stage","Annual day","Welcoming guests at the annual programme")}
+      {photo_img("event-picnic","Large group of students and staff photographed together outdoors","Picnic","The annual picnic")}
+      {photo_img("event-mother-child","Students and mothers with infants at a community health event","Community","At a community health event")}
     </div>
 
     <div class="sec-head rise" style="margin-top:54px;">
-      <span class="label">Competitions</span>
+      <span class="label">Competitions &amp; sports</span>
       <h2 style="font-size:26px;">Beyond the syllabus</h2>
       <p>Activities run alongside the course and included in the fee — no separate charge.</p>
     </div>
     <div class="grid-4 rise">
-      {photo_grid([
-        ("Cooking", "Cooking competition", "medal"),
-        ("Mehendi", "Mehendi competition", "medal"),
-        ("Hair styling", "Hair styling competition", "medal"),
-        ("Yoga", "Yoga and fitness sessions", "star"),
-      ])}
+      {photo_img("event-cooking","Students at a cooking competition with dishes laid out","Cooking","The cooking competition")}
+      {photo_img("event-mehendi","Hands decorated with mehendi at the competition","Mehendi","The mehendi competition")}
+      {photo_img("event-hair-styling","An elaborately braided hairstyle from the hair styling competition","Hair styling","The hair styling competition")}
+      {photo_img("event-arm-wrestling","Two students arm wrestling at a competition table","Contest","Arm wrestling at the sports meet")}
+      {photo_img("event-marathon","Students running a marathon wearing event T-shirts","Marathon","Running the marathon")}
+      {photo_img("event-athletics","Students competing in a running race on a sports ground","Athletics","Track events at the annual sports day")}
+      {photo_img("event-sports-ground","Students assembled on a sports ground for the annual meet","Sports day","The annual sports meet")}
+      {photo_img("event-kabaddi","Students playing kabaddi on a field","Kabaddi","Kabaddi at the sports meet")}
     </div>
   </div>
 </section>
@@ -1734,11 +2245,12 @@ PAGES["gallery.html"] = dict(
          awarded under Bharat Sevak Samaj certification, and families are welcome.</p>
     </div>
     <div class="grid-3 rise">
-      {photo_grid([
-        ("Convocation", "Certificates awarded to the graduating batch", "cap"),
-        ("Convocation", "Distinction holders with the teaching staff", "cap"),
-        ("Convocation", "Families at the annual convocation", "cap"),
-      ])}
+      {photo_img("event-convocation-stage","The graduating batch assembled on stage at convocation","Convocation","The graduating batch on stage")}
+      {photo_img("event-convocation-certificate","A graduate receiving her certificate on stage","Convocation","Receiving the diploma certificate")}
+      {photo_img("event-convocation-award","A graduate being presented with an award at convocation","Convocation","Presentation of awards")}
+      {photo_img("event-convocation-felicitation","Guests being felicitated on stage at the convocation ceremony","Convocation","Felicitation of guests")}
+      {photo_img("silver-jubilee-banner","Silver Jubilee cake reading Dr. Gaikwad Institute Silver Jubilee Year 1996 to 2021, 100% job for 25 years","Silver Jubilee","The Silver Jubilee &mdash; twenty-five years, 1996 to 2021")}
+      {photo_img("event-classroom","Students at work in a classroom at the Dadar premises","Classroom","Teaching at the Dadar premises")}
     </div>
     <div class="callout rise" style="max-width:none;margin-top:30px;">
       <span class="tag-l">A note on these photographs</span>
