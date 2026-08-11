@@ -1,11 +1,21 @@
 /* ============================================================
    Dr. Gaikwad's Institute — site stylesheet
+
    Palette derives from the institute's own printed prospectus
    (single-colour navy ink on bond stock) and the BSS certificate
    seal (brass). Neutrals carry a faint blue cast, not pure grey.
+
+   SINGLE THEME BY DESIGN — every visitor sees the same navy-on-white
+   regardless of their device's dark-mode setting, so the site matches
+   the printed prospectus and the client controls how the brand looks.
+   Do not add a prefers-color-scheme block here.
    ============================================================ */
 
 :root{
+  /* 'only light' opts out of browser forced-dark (Chrome Android auto-dark),
+     which would otherwise invert the page despite the single-theme palette. */
+  color-scheme: only light;
+
   --ink:#0C1F3A; --ink-2:#14315A;
   --navy:#0E2A4E; --navy-deep:#071528; --navy-mid:#1B4276;
   --brass:#A87C22; --brass-lt:#C9A24E; --brass-pale:#F1E6CA;
@@ -19,50 +29,18 @@
   --sans:-apple-system,BlinkMacSystemFont,"Segoe UI Variable Text","Segoe UI","Helvetica Neue",Arial,sans-serif;
   --mono:ui-monospace,"SF Mono","Cascadia Mono","Roboto Mono",Menlo,Consolas,monospace;
 
+  /* The Latin serif stack carries no Devanagari glyphs, so Marathi needs its
+     own families or it silently falls back to whatever the device has. */
+  --devanagari:"Noto Sans Devanagari","Nirmala UI","Kohinoor Devanagari",
+     "Mangal","Shobhika",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  --devanagari-display:"Noto Serif Devanagari","Shobhika","Kohinoor Devanagari",
+     "Nirmala UI","Mangal",Georgia,serif;
+
   --shadow-sm:0 1px 2px rgba(12,31,58,.07);
   --shadow-md:0 1px 3px rgba(12,31,58,.08), 0 8px 24px -12px rgba(12,31,58,.18);
   --shadow-lg:0 2px 6px rgba(12,31,58,.10), 0 24px 56px -24px rgba(12,31,58,.30);
 
   --maxw:1200px; --gut:32px;
-}
-
-@media (prefers-color-scheme: dark){
-  :root{
-    --ink:#E9EEF6; --ink-2:#C9D7EA;
-    --navy:#0B1B30; --navy-deep:#050C16; --navy-mid:#86AAD8;
-    --brass:#D6AC55; --brass-lt:#E7C983; --brass-pale:#2A2417;
-    --paper:#0A111C; --paper-2:#111B29; --paper-3:#16202F;
-    --rule:#243146; --rule-strong:#38485F;
-    --body:#BFCDE0; --muted:#8496AC;
-    --green:#79B394; --green-bg:#132218; --clay:#D38E71; --clay-bg:#241610;
-    --shadow-sm:0 1px 2px rgba(0,0,0,.5);
-    --shadow-md:0 1px 3px rgba(0,0,0,.5), 0 8px 24px -12px rgba(0,0,0,.7);
-    --shadow-lg:0 2px 6px rgba(0,0,0,.5), 0 24px 56px -24px rgba(0,0,0,.8);
-  }
-}
-:root[data-theme="dark"]{
-  --ink:#E9EEF6; --ink-2:#C9D7EA;
-  --navy:#0B1B30; --navy-deep:#050C16; --navy-mid:#86AAD8;
-  --brass:#D6AC55; --brass-lt:#E7C983; --brass-pale:#2A2417;
-  --paper:#0A111C; --paper-2:#111B29; --paper-3:#16202F;
-  --rule:#243146; --rule-strong:#38485F;
-  --body:#BFCDE0; --muted:#8496AC;
-  --green:#79B394; --green-bg:#132218; --clay:#D38E71; --clay-bg:#241610;
-  --shadow-sm:0 1px 2px rgba(0,0,0,.5);
-  --shadow-md:0 1px 3px rgba(0,0,0,.5), 0 8px 24px -12px rgba(0,0,0,.7);
-  --shadow-lg:0 2px 6px rgba(0,0,0,.5), 0 24px 56px -24px rgba(0,0,0,.8);
-}
-:root[data-theme="light"]{
-  --ink:#0C1F3A; --ink-2:#14315A;
-  --navy:#0E2A4E; --navy-deep:#071528; --navy-mid:#1B4276;
-  --brass:#A87C22; --brass-lt:#C9A24E; --brass-pale:#F1E6CA;
-  --paper:#F5F7FA; --paper-2:#FFFFFF; --paper-3:#EDF1F6;
-  --rule:#D3DAE4; --rule-strong:#A9B6C6;
-  --body:#2B3A4E; --muted:#5D6E85;
-  --green:#2F5D45; --green-bg:#E7EFE9; --clay:#8C3F26; --clay-bg:#F5E7E1;
-  --shadow-sm:0 1px 2px rgba(12,31,58,.07);
-  --shadow-md:0 1px 3px rgba(12,31,58,.08), 0 8px 24px -12px rgba(12,31,58,.18);
-  --shadow-lg:0 2px 6px rgba(12,31,58,.10), 0 24px 56px -24px rgba(12,31,58,.30);
 }
 
 /* ---------------------------------------------------------- base */
@@ -92,18 +70,47 @@ img{max-width:100%;}
 .util a{color:#DCE6F3;} .util a:hover{color:var(--brass-lt);}
 .util .sep{color:#3D5478;}
 .util-note{color:#8FA6C6;font-size:12.5px;}
+.util-r{display:flex;align-items:center;gap:18px;}
+
+/* language toggle */
+.lang{display:inline-flex;border:1px solid rgba(201,162,78,.45);border-radius:3px;overflow:hidden;
+   flex:0 0 auto;}
+.lang-btn{appearance:none;background:transparent;border:0;cursor:pointer;font-family:var(--sans);
+   font-size:12px;font-weight:700;letter-spacing:.04em;color:#C3D2E6;padding:5px 12px;line-height:1.5;
+   transition:background .15s, color .15s;}
+.lang-btn + .lang-btn{border-left:1px solid rgba(201,162,78,.3);}
+.lang-btn:hover{color:var(--brass-lt);}
+.lang-btn.is-on{background:var(--brass);color:#1A1204;}
+.lang-btn[lang="mr"]{font-family:var(--devanagari);font-size:12.5px;}
+
+/* Devanagari sits on a taller body than Latin: give it more leading and a
+   touch more size so Marathi does not read cramped next to the same layout. */
+html[lang="mr"] body{font-family:var(--devanagari);}
+html[lang="mr"] h1,html[lang="mr"] h2,html[lang="mr"] h3,html[lang="mr"] h4{
+   font-family:var(--devanagari-display);letter-spacing:0;line-height:1.32;}
+html[lang="mr"] p,html[lang="mr"] li,html[lang="mr"] .letter blockquote{line-height:1.8;}
+html[lang="mr"] .hero h1{line-height:1.24;}
+html[lang="mr"] .pagehead h1{line-height:1.26;}
+html[lang="mr"] .label,html[lang="mr"] .label-q,html[lang="mr"] thead th,
+html[lang="mr"] .step .n,html[lang="mr"] footer.site h5{letter-spacing:.04em;}
+html[lang="mr"] .hero-dek,html[lang="mr"] .pagehead .dek,html[lang="mr"] .sec-head p{line-height:1.7;}
+html[lang="mr"] .brand-name{font-family:var(--devanagari-display);}
+html[lang="mr"] .trust-i b,html[lang="mr"] .head-meta b{line-height:1.25;}
 
 /* ---------------------------------------------------------- header */
 header.site{background:var(--paper-2);border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:60;
      box-shadow:var(--shadow-sm);}
-header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:82px;}
-.brand{display:flex;align-items:center;gap:14px;}
-.brand-txt{display:flex;flex-direction:column;gap:2px;line-height:1.05;}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:82px;}
+/* The brand must be the element that yields when a longer translation widens
+   the buttons, otherwise the row overflows its container. */
+.brand{display:flex;align-items:center;gap:14px;min-width:0;flex:0 1 auto;}
+.brand-txt{display:flex;flex-direction:column;gap:2px;line-height:1.05;min-width:0;}
+header.site .btn,.nav-toggle{flex:0 0 auto;}
 .brand-name{font-family:var(--serif);font-size:19px;font-weight:600;color:var(--ink);letter-spacing:-.01em;
-     white-space:nowrap;}
+     white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .brand-name sup{font-size:9px;vertical-align:super;color:var(--brass);}
 .brand-sub{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:600;
-     white-space:nowrap;}
+     white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 nav.main{display:flex;align-items:center;gap:1px;}
 nav.main a{font-size:13.5px;font-weight:600;color:var(--body);padding:10px 12px;border-radius:2px;
      transition:color .15s, background .15s;white-space:nowrap;}
@@ -523,9 +530,6 @@ footer.site a:hover{color:#DCE7F3;}
     background:var(--green);color:#fff;padding:13px 20px;border-radius:3px;font-size:14px;font-weight:700;
     box-shadow:var(--shadow-lg);border:1px solid rgba(255,255,255,.18);}
 .wa:hover{filter:brightness(1.1);}
-:root[data-theme="dark"] .wa{color:#08130D;}
-@media (prefers-color-scheme: dark){ .wa{color:#08130D;} }
-:root[data-theme="light"] .wa{color:#fff;}
 
 /* ---------------------------------------------------------- motion */
 .rise{opacity:0;transform:translateY(14px);}
