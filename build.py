@@ -12,6 +12,8 @@ instead of being copy-pasted across fourteen pages.
 
 import os, re, hashlib
 
+from i18n_mr import MR
+
 ROOT = os.path.dirname(os.path.abspath(__file__))
 
 
@@ -419,7 +421,7 @@ def shell(page_file, title, description, body, active=None, head_extra="", robot
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {head_extra}<title>{title}</title>
 <meta name="description" content="{description}">
-{robots}<meta name="color-scheme" content="light dark">
+{robots}<meta name="color-scheme" content="only light">
 <link rel="stylesheet" href="assets/css/site.css?v={ASSET_VER}">
 </head>
 <body>
@@ -434,7 +436,13 @@ def shell(page_file, title, description, body, active=None, head_extra="", robot
       <span class="sep">|</span>
       <a href="mailto:{EMAIL}">{EMAIL}</a>
     </div>
-    <div class="util-note">{ADDR_H}</div>
+    <div class="util-r">
+      <div class="lang" role="group" aria-label="Language / भाषा">
+        <button type="button" class="lang-btn is-on" data-lang="en" aria-pressed="true">English</button>
+        <button type="button" class="lang-btn" data-lang="mr" aria-pressed="false" lang="mr">मराठी</button>
+      </div>
+      <span class="util-note">{ADDR_H}</span>
+    </div>
   </div>
 </div>
 
@@ -2350,11 +2358,91 @@ PAGES["404.html"] = dict(
 </section>""")
 
 
+_I18N_SKIP = {"script", "style", "svg", "code", "textarea"}
+_i18n_stats = {"hit": 0, "miss": 0}
+_i18n_missing = {}
+
+
+def inject_marathi(page_html):
+    """Walk the built page and stamp data-mr on every element whose own text
+    has a Marathi translation. English stays in the HTML as the default, so
+    the page needs no JavaScript to render correctly."""
+    from lxml import html as LH, etree
+
+    doc = LH.fromstring(page_html)
+    for el in doc.iter():
+        if not isinstance(el.tag, str) or el.tag in _I18N_SKIP:
+            continue
+        if any(a.tag in _I18N_SKIP for a in el.iterancestors() if isinstance(a.tag, str)):
+            continue
+
+        # Only elements whose text is a single run with no element children
+        # in front of it — anything richer is handled by its child elements.
+        if el.text:
+            key = " ".join(el.text.split())
+            if len(key) > 1:
+                mr = MR.get(key)
+                if mr:
+                    el.set("data-mr", mr)
+                    _i18n_stats["hit"] += 1
+                elif not _skip_key(key):
+                    _i18n_stats["miss"] += 1
+                    _i18n_missing[key] = _i18n_missing.get(key, 0) + 1
+
+        # option elements carry their label as text; select values need it too
+        if el.tag == "option" and el.text:
+            key = " ".join(el.text.split())
+            if key in MR and not el.get("data-mr"):
+                el.set("data-mr", MR[key])
+
+    out = etree.tostring(doc, encoding="unicode", method="html", doctype="<!doctype html>")
+    return out
+
+
+_SKIP_RE = re.compile(r"^[\W\d₹,.\-–—/&·:;()%+]*$")
+
+
+def _skip_key(k):
+    """Strings not worth translating: pure punctuation/numbers, proper nouns,
+    contact details, and the hospital/lab directory."""
+    if _SKIP_RE.match(k):
+        return True
+    if k in _PROPER_NOUNS:
+        return True
+    if k.startswith(("+91", "&#8377;", "₹")) or "@" in k:
+        return True
+    # <title> text: not user-visible on the page, and swapping it mid-session
+    # would rewrite the browser tab for no benefit.
+    if "Dr. Gaikwad's Institute" in k and ("—" in k or "|" in k):
+        return True
+    # Language names always appear in their own language.
+    if k in ("English", "मराठी"):
+        return True
+    # Course codes and organisation names with an ampersand.
+    if k in ("DPC · DPCA", "DOTT", "DOPTO", "DMLT", "ADMLT", "MBBS", "ISO 9001",
+             "Shivaji Maharaj The Greatest", "Manual of Obstetrics & Gynaecology"):
+        return True
+    if any(w in k for w in ("Hospital", "Nursing Home", "Polyclinic", "Diagnostic",
+                            "Clinic &", "Maternity &", "Healthcare", "Trust &")):
+        return True
+    return False
+
+
+_PROPER_NOUNS = set(HOSPITALS) | set(LABS) | set(MAJOR_POSTINGS) | {
+    b[1] for b in BOOKS} | set(OTHER_BOOKS) | set(CERTS) | {
+    t["name"] for t in TESTIMONIALS} | {t["place"] for t in TESTIMONIALS} | {
+    "Dr. Gaikwad's Institute", FOUNDER["name"], "Bharat Sevak Samaj", "B.S.S", "DGI",
+    "ISO 9001:2015", "HLACT International", "World Skill Council", "Shri Venkateshwara University",
+    "MBBS, DOMS, PhD", "MBBS · DOMS · PhD", "Dadar (W)", "B.S.S.", "Dadar",
+}
+
+
 def build():
     written = []
     for filename, cfg in PAGES.items():
         html = shell(filename, cfg["title"], cfg["description"], cfg["body"], cfg.get("active"),
                      cfg.get("head_extra", ""), cfg.get("robots", ""))
+        html = inject_marathi(html)
         with open(os.path.join(ROOT, filename), "w", encoding="utf-8") as fh:
             fh.write(html)
         written.append((filename, len(html)))
@@ -2363,6 +2451,13 @@ def build():
 
 if __name__ == "__main__":
     pages = build()
+    cov = _i18n_stats["hit"] / max(1, _i18n_stats["hit"] + _i18n_stats["miss"]) * 100
+    print(f"Marathi coverage: {_i18n_stats['hit']} translated / "
+          f"{_i18n_stats['hit'] + _i18n_stats['miss']} strings  ({cov:.0f}%)")
+    with open("/tmp/i18n_missing.txt", "w", encoding="utf-8") as fh:
+        for k, n in sorted(_i18n_missing.items(), key=lambda kv: -kv[1]):
+            fh.write(f"{n}\t{k}\n")
+    print(f"untranslated list -> /tmp/i18n_missing.txt ({len(_i18n_missing)} unique)\n")
     print(f"Built {len(pages)} pages:\n")
     for name, size in sorted(pages):
         print(f"  {name:<42} {size/1024:6.1f} KB")
