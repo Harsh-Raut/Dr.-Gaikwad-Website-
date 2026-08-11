@@ -65,3 +65,53 @@
     });
   }
 })();
+
+/* ------------------------------------------------------------------ i18n
+   English ships in the HTML; the Marathi sits alongside it in data-mr.
+   Toggling swaps textContent in place — no fetch, no reload, no flash.
+   The choice is remembered and re-applied before paint on the next page. */
+(function () {
+  'use strict';
+
+  var KEY = 'dgi-lang';
+  var root = document.documentElement;
+
+  function apply(lang) {
+    var toMr = lang === 'mr';
+    var nodes = document.querySelectorAll('[data-mr]');
+    for (var i = 0; i < nodes.length; i++) {
+      var el = nodes[i];
+      // Stash the original English once, so switching back is lossless.
+      if (el.getAttribute('data-en') === null) {
+        el.setAttribute('data-en', el.firstChild && el.firstChild.nodeType === 3
+          ? el.firstChild.nodeValue : el.textContent);
+      }
+      var text = toMr ? el.getAttribute('data-mr') : el.getAttribute('data-en');
+      // Replace only the element's own leading text node, leaving child
+      // elements (links, <b>, <small>) untouched.
+      if (el.firstChild && el.firstChild.nodeType === 3) {
+        el.firstChild.nodeValue = text;
+      } else {
+        el.insertBefore(document.createTextNode(text), el.firstChild);
+      }
+    }
+    root.setAttribute('lang', toMr ? 'mr' : 'en');
+    var btns = document.querySelectorAll('.lang-btn');
+    for (var j = 0; j < btns.length; j++) {
+      var on = btns[j].getAttribute('data-lang') === lang;
+      btns[j].classList.toggle('is-on', on);
+      btns[j].setAttribute('aria-pressed', String(on));
+    }
+    try { localStorage.setItem(KEY, lang); } catch (e) {}
+  }
+
+  var saved;
+  try { saved = localStorage.getItem(KEY); } catch (e) {}
+  if (saved === 'mr') apply('mr');
+
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest ? e.target.closest('.lang-btn') : null;
+    if (!btn) return;
+    apply(btn.getAttribute('data-lang'));
+  });
+})();
